@@ -5,10 +5,10 @@ const Connector = (params) => {
   axios({
     method: params.method ?? "get",
     url: params.url,
-    data: params.data ?? {},
-    responseType: params.responseType ?? "json",
-    dataType: params.dataType ?? "json",
-    headers: params.headers ?? {},
+    data: params.data !== undefined ?? {},
+    responseType: params.responseType !== undefined ?? "json",
+    dataType: params.dataType !== undefined ?? "json",
+    headers: params.headers !== undefined ?? {},
   })
     .then(params.success)
     .catch((error) => {
@@ -17,11 +17,7 @@ const Connector = (params) => {
         NotificationManager.error("Bad Request", "Try again later.");
       if (error.response !== undefined && error.response.status === 500)
         NotificationManager.error("Server error", "Try again later.");
-      if (
-        apiRoutes.signin !== params.url &&
-        error.response !== undefined &&
-        error.response.status === 401
-      )
+      if (error.response !== undefined && error.response.status === 401)
         NotificationManager.error(
           "Access denied",
           "You have no authorization."
