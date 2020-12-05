@@ -1,10 +1,11 @@
 import axios from "axios";
 import { NotificationManager } from "react-notifications";
+import { apiKey } from "./vars";
 
 const Connector = (params) => {
   axios({
     method: params.method ?? "get",
-    url: params.url,
+    url: `${params.url}&apiKey=${apiKey}`,
     data: params.data !== undefined ?? {},
     responseType: params.responseType !== undefined ?? "json",
     dataType: params.dataType !== undefined ?? "json",
