@@ -4,7 +4,7 @@ This a demo app to show news based on ReactJs and Redux.
 
 ## Usage instructions.
 
-1. [Clone the app from:](https://github.com/Bahhous/NewsApp)
+1. Clone the App.
 
 2. Install dependencies:
     - With npm: (`npm install`)
