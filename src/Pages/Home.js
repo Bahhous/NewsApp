@@ -12,13 +12,15 @@ import { withRouter } from "react-router-dom";
 export default withRouter(function Home(props) {
   const dispacth = useDispatch();
   let newsList = useSelector((state) => state.main.newsList);
+  let user = useSelector((state) => state.user.user);
   if (props.match.path === "/top-headlines")
     newsList = useSelector((state) => state.main.topNewsList);
   else if (props.match.path === "/custom")
     newsList = useSelector((state) => state.main.customNewsList);
   useEffect(() => {
     if (props.match.path === "/top-headlines") dispacth(getTopNewsList());
-    else if (props.match.path === "/custom") dispacth(getCustomNewsList());
+    else if (props.match.path === "/custom" && user)
+      dispacth(getCustomNewsList(user.customNewsKeyword));
     else dispacth(getNewsList());
   }, []);
   return (

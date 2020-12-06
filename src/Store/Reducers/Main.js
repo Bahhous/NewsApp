@@ -17,7 +17,7 @@ const MainReducer = (state = initState, action) => {
       return updateObject(state, {
         topNewsList: action.topNewsList,
       });
-    case actionTypes.LOAD_TOP_NEWS_LIST:
+    case actionTypes.LOAD_CUSTOM_NEWS_LIST:
       return updateObject(state, {
         customNewsList: action.customNewsList,
       });
