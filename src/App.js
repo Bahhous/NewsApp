@@ -5,7 +5,6 @@ import Router from "./Router";
 const App = () => {
   return (
     <>
-      <h1>News APP</h1>
       <Router />
       <NotificationContainer />
     </>
