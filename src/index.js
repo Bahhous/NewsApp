@@ -9,6 +9,7 @@ import Logger from "./Store/Middlewares/Logger";
 
 //Import reducers
 import Main from "./Store/Reducers/Main";
+import User from "./Store/Reducers/User";
 
 //Import assets
 //import "react-notifications/lib/notifications.css";
@@ -22,6 +23,7 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const rootReducer = combineReducers({
   main: Main,
+  user: User,
 });
 
 const store = createStore(

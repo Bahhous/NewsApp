@@ -2,8 +2,10 @@ import React from "react";
 import { Nav, Navbar } from "react-bootstrap";
 import { PUBLIC_ROUTE } from "../route.constants";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function NaBar() {
+  const user = useSelector((state) => state.user.user);
   return (
     <>
       <Navbar bg="dark" variant="dark">
@@ -16,10 +18,13 @@ export default function NaBar() {
           <Link className="nav-link" to={PUBLIC_ROUTE.TOP_HEADLINES}>
             Top headlines
           </Link>
-          <Link className="nav-link" to={PUBLIC_ROUTE.CUSTOM}>
-            Custom
-          </Link>
-          <Link className="nav-link" to={PUBLIC_ROUTE.PROFILE}>
+          {user !== false ? (
+            <Link className="nav-link" to={PUBLIC_ROUTE.CUSTOM}>
+              Custom
+            </Link>
+          ) : null}
+
+          <Link className="nav-link" to={PUBLIC_ROUTE.PROFIL}>
             Profile
           </Link>
         </Nav>
